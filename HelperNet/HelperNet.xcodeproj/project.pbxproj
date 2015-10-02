@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC41BBF462400782756 /* P2PKit.framework */; settings = {ASSET_TAGS = (); }; };
+		C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */; };
+		C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC81BBF46DD00782756 /* CoreLocation.framework */; };
+		C69F6ACD1BBF470A00782756 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6ACC1BBF470A00782756 /* CFNetwork.framework */; };
+		C69F6ACF1BBF471100782756 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6ACE1BBF471100782756 /* Security.framework */; };
+		C69F6AD11BBF471900782756 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AD01BBF471900782756 /* Foundation.framework */; };
 		FA6739851BBF43FE009E82C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6739841BBF43FE009E82C1 /* AppDelegate.swift */; };
 		FA6739871BBF43FE009E82C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6739861BBF43FE009E82C1 /* ViewController.swift */; };
 		FA67398A1BBF43FE009E82C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6739881BBF43FE009E82C1 /* Main.storyboard */; };
@@ -15,6 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = P2PKit.framework; sourceTree = "<group>"; };
+		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C69F6ACC1BBF470A00782756 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C69F6ACE1BBF471100782756 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C69F6AD01BBF471900782756 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C69F6AD31BBF489600782756 /* HelperNet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelperNet-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA6739811BBF43FE009E82C1 /* HelperNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelperNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6739841BBF43FE009E82C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA6739861BBF43FE009E82C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +42,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69F6AD11BBF471900782756 /* Foundation.framework in Frameworks */,
+				C69F6ACF1BBF471100782756 /* Security.framework in Frameworks */,
+				C69F6ACD1BBF470A00782756 /* CFNetwork.framework in Frameworks */,
+				C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */,
+				C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */,
+				C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +57,11 @@
 		FA6739781BBF43FE009E82C1 = {
 			isa = PBXGroup;
 			children = (
+				C69F6AD01BBF471900782756 /* Foundation.framework */,
+				C69F6ACE1BBF471100782756 /* Security.framework */,
+				C69F6ACC1BBF470A00782756 /* CFNetwork.framework */,
+				C69F6AC81BBF46DD00782756 /* CoreLocation.framework */,
+				C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */,
 				FA6739831BBF43FE009E82C1 /* HelperNet */,
 				FA6739821BBF43FE009E82C1 /* Products */,
 			);
@@ -54,8 +78,10 @@
 		FA6739831BBF43FE009E82C1 /* HelperNet */ = {
 			isa = PBXGroup;
 			children = (
+				C69F6AC41BBF462400782756 /* P2PKit.framework */,
 				FA6739841BBF43FE009E82C1 /* AppDelegate.swift */,
 				FA6739861BBF43FE009E82C1 /* ViewController.swift */,
+				C69F6AD31BBF489600782756 /* HelperNet-Bridging-Header.h */,
 				FA6739881BBF43FE009E82C1 /* Main.storyboard */,
 				FA67398B1BBF43FE009E82C1 /* Assets.xcassets */,
 				FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */,
@@ -248,10 +274,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HelperNet",
+				);
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NBN.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -259,10 +290,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HelperNet",
+				);
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NBN.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -285,6 +321,7 @@
 				FA6739951BBF43FE009E82C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
