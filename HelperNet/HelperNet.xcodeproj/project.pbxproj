@@ -18,6 +18,7 @@
 		FA67398A1BBF43FE009E82C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6739881BBF43FE009E82C1 /* Main.storyboard */; };
 		FA67398C1BBF43FE009E82C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA67398B1BBF43FE009E82C1 /* Assets.xcassets */; };
 		FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */; };
+		FA6918231BBF4E0D00A3B07B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6918221BBF4E0D00A3B07B /* libicucore.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		FA67398B1BBF43FE009E82C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA67398E1BBF43FE009E82C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6739901BBF43FE009E82C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA6918221BBF4E0D00A3B07B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6918231BBF4E0D00A3B07B /* libicucore.tbd in Frameworks */,
 				C69F6AD11BBF471900782756 /* Foundation.framework in Frameworks */,
 				C69F6ACF1BBF471100782756 /* Security.framework in Frameworks */,
 				C69F6ACD1BBF470A00782756 /* CFNetwork.framework in Frameworks */,
@@ -57,6 +60,7 @@
 		FA6739781BBF43FE009E82C1 = {
 			isa = PBXGroup;
 			children = (
+				FA6918221BBF4E0D00A3B07B /* libicucore.tbd */,
 				C69F6AD01BBF471900782756 /* Foundation.framework */,
 				C69F6ACE1BBF471100782756 /* Security.framework */,
 				C69F6ACC1BBF470A00782756 /* CFNetwork.framework */,
