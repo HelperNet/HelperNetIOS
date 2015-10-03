@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         NSLog("%@: %@", peer.peerID, discoveryInfoString!)
         
         if !(discoveryInfoString!.hasPrefix("OK")) {
-            var localNotification = UILocalNotification()
+            let localNotification = UILocalNotification()
             localNotification.alertAction = "Emergency"
             localNotification.alertBody = discoveryInfoString! as String
             UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
         
         if !(discoveryInfo!.hasPrefix("OK")) {
-            var localNotification = UILocalNotification()
+            let localNotification = UILocalNotification()
             localNotification.alertAction = "Emergency"
             localNotification.alertBody = discoveryInfo! as String
             UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
