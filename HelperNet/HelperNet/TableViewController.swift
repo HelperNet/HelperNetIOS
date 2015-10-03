@@ -22,6 +22,12 @@ class TableViewController: UITableViewController {
         }
     }
     
+    @IBAction func openFreepikUrl(sender: AnyObject) {
+        if let url = NSURL(string: "http://www.freepik.com") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(telNumber.text! as String, forKey: "phoneNumber")
