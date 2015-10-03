@@ -128,6 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             localNotification.alertBody = infoStr
             localNotification.soundName = UILocalNotificationDefaultSoundName
             UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+            NSNotificationCenter.defaultCenter().postNotificationName("mapButtonListener", object: nil)
         }
     }
     

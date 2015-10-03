@@ -23,6 +23,13 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
     }
     
+    @IBAction func mapButton(sender: AnyObject) {
+        UIApplication
+            .sharedApplication()
+            .openURL(NSURL(string: ("http://maps.apple.com/?daddr=" + (appDelegate?.coordinates)!))!)
+    }
+    @IBOutlet weak var map: UIButton!
+    
     func dispatchCall(fullMessage: String) {
         NSLog("Pushing full message -- "+fullMessage)
         
@@ -58,6 +65,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         PPKController.addObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "triggerMySegue:", name: "segueListener", object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMapButton:", name: "mapButtonListener", object: nil)
+        
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         
@@ -70,6 +79,11 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         }
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    @objc func showMapButton(notification: NSNotification) {
+        print("UNHIDE BUTTON")
+        map.hidden = false
     }
     
     @objc func triggerMySegue(notification: NSNotification) {
