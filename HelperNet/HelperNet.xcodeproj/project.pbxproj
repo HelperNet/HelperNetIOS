@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C602CC6E1BBF96A900ED664A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C602CC6D1BBF96A900ED664A /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
+		C602CC711BBF96A900ED664A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C602CC701BBF96A900ED664A /* TodayViewController.swift */; };
+		C602CC741BBF96A900ED664A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C602CC721BBF96A900ED664A /* MainInterface.storyboard */; };
+		C602CC781BBF96A900ED664A /* Emergency Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC41BBF462400782756 /* P2PKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */; };
 		C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC81BBF46DD00782756 /* CoreLocation.framework */; };
@@ -22,8 +26,37 @@
 		FACC43C51BBF9A4C0088115C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC43C41BBF9A4C0088115C /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C602CC761BBF96A900ED664A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA6739791BBF43FE009E82C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C602CC6A1BBF96A900ED664A;
+			remoteInfo = "Emergency Widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C602CC7C1BBF96A900ED664A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C602CC781BBF96A900ED664A /* Emergency Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = P2PKit.framework; sourceTree = "<group>"; };
+		C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Emergency Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C602CC6D1BBF96A900ED664A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		C602CC701BBF96A900ED664A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		C602CC731BBF96A900ED664A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C602CC751BBF96A900ED664A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P2PKit.framework; path = HelperNet/P2PKit.framework; sourceTree = "<group>"; };
 		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C69F6ACC1BBF470A00782756 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -42,6 +75,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C602CC681BBF96A900ED664A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C602CC6E1BBF96A900ED664A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA67397E1BBF43FE009E82C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,16 +100,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C602CC6C1BBF96A900ED664A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C602CC6D1BBF96A900ED664A /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C602CC6F1BBF96A900ED664A /* Emergency Widget */ = {
+			isa = PBXGroup;
+			children = (
+				C602CC701BBF96A900ED664A /* TodayViewController.swift */,
+				C602CC721BBF96A900ED664A /* MainInterface.storyboard */,
+				C602CC751BBF96A900ED664A /* Info.plist */,
+			);
+			path = "Emergency Widget";
+			sourceTree = "<group>";
+		};
 		FA6739781BBF43FE009E82C1 = {
 			isa = PBXGroup;
 			children = (
 				FA6918221BBF4E0D00A3B07B /* libicucore.tbd */,
+				C69F6AC41BBF462400782756 /* P2PKit.framework */,
 				C69F6AD01BBF471900782756 /* Foundation.framework */,
 				C69F6ACE1BBF471100782756 /* Security.framework */,
 				C69F6ACC1BBF470A00782756 /* CFNetwork.framework */,
 				C69F6AC81BBF46DD00782756 /* CoreLocation.framework */,
 				C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */,
 				FA6739831BBF43FE009E82C1 /* HelperNet */,
+				C602CC6F1BBF96A900ED664A /* Emergency Widget */,
+				C602CC6C1BBF96A900ED664A /* Frameworks */,
 				FA6739821BBF43FE009E82C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6739811BBF43FE009E82C1 /* HelperNet.app */,
+				C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +147,6 @@
 		FA6739831BBF43FE009E82C1 /* HelperNet */ = {
 			isa = PBXGroup;
 			children = (
-				C69F6AC41BBF462400782756 /* P2PKit.framework */,
 				FA6739841BBF43FE009E82C1 /* AppDelegate.swift */,
 				FA6739861BBF43FE009E82C1 /* ViewController.swift */,
 				C69F6AD31BBF489600782756 /* HelperNet-Bridging-Header.h */,
@@ -100,6 +162,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C602CC6A1BBF96A900ED664A /* Emergency Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C602CC7B1BBF96A900ED664A /* Build configuration list for PBXNativeTarget "Emergency Widget" */;
+			buildPhases = (
+				C602CC671BBF96A900ED664A /* Sources */,
+				C602CC681BBF96A900ED664A /* Frameworks */,
+				C602CC691BBF96A900ED664A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Emergency Widget";
+			productName = "Emergency Widget";
+			productReference = C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FA6739801BBF43FE009E82C1 /* HelperNet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA6739931BBF43FE009E82C1 /* Build configuration list for PBXNativeTarget "HelperNet" */;
@@ -107,10 +186,12 @@
 				FA67397D1BBF43FE009E82C1 /* Sources */,
 				FA67397E1BBF43FE009E82C1 /* Frameworks */,
 				FA67397F1BBF43FE009E82C1 /* Resources */,
+				C602CC7C1BBF96A900ED664A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C602CC771BBF96A900ED664A /* PBXTargetDependency */,
 			);
 			name = HelperNet;
 			productName = HelperNet;
@@ -126,9 +207,13 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = nerdishByNature;
 				TargetAttributes = {
+					C602CC6A1BBF96A900ED664A = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 7JUN85HZJS;
+					};
 					FA6739801BBF43FE009E82C1 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = FTD686N32X;
+						DevelopmentTeam = 7JUN85HZJS;
 					};
 				};
 			};
@@ -146,11 +231,20 @@
 			projectRoot = "";
 			targets = (
 				FA6739801BBF43FE009E82C1 /* HelperNet */,
+				C602CC6A1BBF96A900ED664A /* Emergency Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C602CC691BBF96A900ED664A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C602CC741BBF96A900ED664A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA67397F1BBF43FE009E82C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,6 +258,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C602CC671BBF96A900ED664A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C602CC711BBF96A900ED664A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA67397D1BBF43FE009E82C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,7 +278,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C602CC771BBF96A900ED664A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C602CC6A1BBF96A900ED664A /* Emergency Widget */;
+			targetProxy = C602CC761BBF96A900ED664A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		C602CC721BBF96A900ED664A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C602CC731BBF96A900ED664A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		FA6739881BBF43FE009E82C1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -196,6 +314,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C602CC791BBF96A900ED664A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Emergency Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C602CC7A1BBF96A900ED664A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Emergency Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		FA6739911BBF43FE009E82C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -285,6 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -293,7 +442,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NBN.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
@@ -306,6 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,7 +464,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NBN.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
@@ -324,6 +474,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C602CC7B1BBF96A900ED664A /* Build configuration list for PBXNativeTarget "Emergency Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C602CC791BBF96A900ED664A /* Debug */,
+				C602CC7A1BBF96A900ED664A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FA67397C1BBF43FE009E82C1 /* Build configuration list for PBXProject "HelperNet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

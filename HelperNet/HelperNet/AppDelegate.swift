@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         
         return true
     }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
+    {
+        print("Emergency. Alarm, Alarm!")
+        return true
+        
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -73,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
         NSLog("%@: %@", peer.peerID, discoveryInfoString!)
         
+
         self.requestNotification(discoveryInfoString)
     }
     
@@ -84,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
         
+
         self.requestNotification(discoveryInfo)
     }
 
