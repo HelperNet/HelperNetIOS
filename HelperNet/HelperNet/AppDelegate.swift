@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+    var locationManager: CLLocationManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -75,7 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         }
     }
     
-    
     func p2pPeerDiscovered(peer: PPKPeer!) {
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
         NSLog("%@: %@", peer.peerID, discoveryInfoString!)
@@ -95,6 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
 
         self.requestNotification(discoveryInfo)
     }
-
+    
 }
 
