@@ -10,7 +10,14 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
+    @IBOutlet weak var emergencyButton: UIButton!
+    override func loadView() {
+        super.loadView()
+        emergencyButton.layer.cornerRadius = 5;
+        emergencyButton.clipsToBounds = true;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
