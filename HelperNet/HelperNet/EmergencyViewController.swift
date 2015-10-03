@@ -10,6 +10,7 @@ import UIKit
 
 class EmergencyViewController: UIViewController, PPKControllerDelegate {
     
+    @IBOutlet weak var helperNumberLabelPerson: UILabel!
     @IBOutlet weak var helperNumberLabel: UILabel!
     var helperNumber = 0
     
@@ -33,11 +34,17 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         if info.hasPrefix("OT") {
             helperNumber += 1
             helperNumberLabel.text = String(helperNumber)
+            
+            if (helperNumber == 1) {
+                helperNumberLabelPerson.text = "person has responded"
+            } else {
+                helperNumberLabelPerson.text = "persons have responded"
+            }
         }
     }
     
     func p2pPeerDiscovered(peer: PPKPeer!) {
-        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
+        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         self.requestNotification(discoveryInfoString)
     }
     
