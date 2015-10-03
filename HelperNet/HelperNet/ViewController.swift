@@ -23,6 +23,10 @@ class ViewController: UIViewController, PPKControllerDelegate {
             UIApplication.sharedApplication().openURL(url)
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -25,6 +25,7 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         let defaults = NSUserDefaults.standardUserDefaults()
         telNumber.text = defaults.objectForKey("phoneNumber") as? String ?? ""
         emergencyCall.on = defaults.boolForKey("callEmergencyOn")
