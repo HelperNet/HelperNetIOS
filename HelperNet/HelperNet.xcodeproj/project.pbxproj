@@ -11,7 +11,6 @@
 		C602CC711BBF96A900ED664A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C602CC701BBF96A900ED664A /* TodayViewController.swift */; };
 		C602CC741BBF96A900ED664A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C602CC721BBF96A900ED664A /* MainInterface.storyboard */; };
 		C602CC781BBF96A900ED664A /* Emergency Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C602CC811BBFB43C00ED664A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C602CC801BBFB43C00ED664A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC41BBF462400782756 /* P2PKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */; };
 		C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC81BBF46DD00782756 /* CoreLocation.framework */; };
@@ -24,6 +23,7 @@
 		FA67398C1BBF43FE009E82C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA67398B1BBF43FE009E82C1 /* Assets.xcassets */; };
 		FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */; };
 		FA6918231BBF4E0D00A3B07B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6918221BBF4E0D00A3B07B /* libicucore.tbd */; };
+		FACC43C51BBF9A4C0088115C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC43C41BBF9A4C0088115C /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,6 @@
 		C602CC701BBF96A900ED664A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C602CC731BBF96A900ED664A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C602CC751BBF96A900ED664A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C602CC801BBFB43C00ED664A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P2PKit.framework; path = HelperNet/P2PKit.framework; sourceTree = "<group>"; };
 		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -72,6 +71,7 @@
 		FA67398E1BBF43FE009E82C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6739901BBF43FE009E82C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6918221BBF4E0D00A3B07B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		FACC43C41BBF9A4C0088115C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 				FA67398B1BBF43FE009E82C1 /* Assets.xcassets */,
 				FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */,
 				FA6739901BBF43FE009E82C1 /* Info.plist */,
-				C602CC801BBFB43C00ED664A /* Images.xcassets */,
+				FACC43C41BBF9A4C0088115C /* TableViewController.swift */,
 			);
 			path = HelperNet;
 			sourceTree = "<group>";
@@ -209,11 +209,11 @@
 				TargetAttributes = {
 					C602CC6A1BBF96A900ED664A = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = FTD686N32X;
+						DevelopmentTeam = 7JUN85HZJS;
 					};
 					FA6739801BBF43FE009E82C1 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = FTD686N32X;
+						DevelopmentTeam = 7JUN85HZJS;
 					};
 				};
 			};
@@ -250,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */,
-				C602CC811BBFB43C00ED664A /* Images.xcassets in Resources */,
 				FA67398C1BBF43FE009E82C1 /* Assets.xcassets in Resources */,
 				FA67398A1BBF43FE009E82C1 /* Main.storyboard in Resources */,
 			);
@@ -272,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6739871BBF43FE009E82C1 /* ViewController.swift in Sources */,
+				FACC43C51BBF9A4C0088115C /* TableViewController.swift in Sources */,
 				FA6739851BBF43FE009E82C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,9 +320,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "NBN.HelperNet.Emergency-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -333,9 +335,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "NBN.HelperNet.Emergency-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -438,7 +442,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NBN.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
@@ -460,7 +464,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NBN.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";

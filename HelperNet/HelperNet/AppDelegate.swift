@@ -60,16 +60,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         NSLog("PPK Controller Initialized")
     }
     
+    func getNotificationMessage() -> String {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
+        return message
+    }
+    
+    func requestNotification(info: NSString!) {
+        if !(info.hasPrefix("OK")) {
+            let localNotification = UILocalNotification()
+            localNotification.alertAction = "Emergency"
+            localNotification.alertBody = self.getNotificationMessage()
+            UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+        }
+    }
+    
+    
     func p2pPeerDiscovered(peer: PPKPeer!) {
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
         NSLog("%@: %@", peer.peerID, discoveryInfoString!)
         
-        if !(discoveryInfoString!.hasPrefix("OK")) {
-            let localNotification = UILocalNotification()
-            localNotification.alertAction = "Emergency"
-            localNotification.alertBody = discoveryInfoString! as String
-            UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
-        }
+
+        self.requestNotification(discoveryInfoString)
     }
     
     func p2pPeerLost(peer: PPKPeer!) {
@@ -80,12 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
         
-        if !(discoveryInfo!.hasPrefix("OK")) {
-            let localNotification = UILocalNotification()
-            localNotification.alertAction = "Emergency"
-            localNotification.alertBody = discoveryInfo! as String
-            UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
-        }
+
+        self.requestNotification(discoveryInfo)
     }
 
 }
