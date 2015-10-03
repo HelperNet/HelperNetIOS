@@ -13,6 +13,13 @@ class ViewController: UIViewController, PPKControllerDelegate {
     @IBAction func buttonCall(sender: AnyObject) {
         let myDiscoveryInfo = "EC: Epileptic Shock!".dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+        
+        let settings = NSUserDefaults.standardUserDefaults()
+        if (settings.boolForKey("callEmergencyOn")) {
+            NSLog("call on")
+            // todo: dispatch phone call
+        }
+        
         NSLog("Discovery Info changed")
     }
     
