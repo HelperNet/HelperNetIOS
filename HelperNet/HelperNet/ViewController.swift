@@ -13,6 +13,7 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     
     let locationManager = CLLocationManager()
     let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+    var numberHelpers = 0
     
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func buttonCall(sender: AnyObject) {
@@ -30,11 +31,13 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
         
+        numberHelpers = 0
+        
+        appDelegate?.messagedLoc = true
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
-        
-        appDelegate?.messagedLoc = false
         
         // dispatch emergency call when allowed in settings
         let settings = NSUserDefaults.standardUserDefaults()
@@ -44,6 +47,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             let url: NSURL = NSURL(string: phoneUrlString)!
             UIApplication.sharedApplication().openURL(url)
         }
+        
+        appDelegate?.messagedLoc = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -95,9 +100,20 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         // Dispose of any resources that can be recreated.
     }
     
+    func requestNotification(info: NSString!) {
+        // dispatch on DiscoveryInfo
+        if info.hasPrefix("OT") {
+            numberHelpers += 1
+            //******************** HIER EVENT TRIGGERN ********/
+        }
+    }
+
+    
     func p2pPeerDiscovered(peer: PPKPeer!) {
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
         NSLog("%@ is here with discovery info: %@", peer.peerID, discoveryInfoString!)
+        
+        self.requestNotification(discoveryInfoString)
     }
     
     func p2pPeerLost(peer: PPKPeer!) {
@@ -107,6 +123,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
+        
+        self.requestNotification(discoveryInfo)
     }
     
     func getNotificationMessage() -> String {

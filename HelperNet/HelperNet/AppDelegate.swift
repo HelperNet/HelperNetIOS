@@ -50,16 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
     {
+        messagedLoc = true
         // start location service
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
         
-        messagedLoc = false
-        
         NSNotificationCenter.defaultCenter().postNotificationName("segueListener", object: nil)
         return true
         
+        messagedLoc = false
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
