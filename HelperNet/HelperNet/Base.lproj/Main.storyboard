@@ -21,6 +21,9 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.73959015052356025" green="0.73959015052356025" blue="0.73959015052356025" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="PublishInfo"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="96" y="278" width="208" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="buttonCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGW-dg-nTi"/>
                                 </connections>
@@ -31,6 +34,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="179" y="150" width="42" height="21"/>
+                                </variation>
                             </label>
                         </subviews>
                         <animations/>
