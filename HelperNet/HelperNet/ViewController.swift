@@ -17,6 +17,13 @@ class ViewController: UIViewController, PPKControllerDelegate {
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
         NSLog("Discovery Info changed")
     }
+
+   // make a phonecall by opening tel url
+    @IBAction func callPhone(sender: AnyObject) {
+        let url: NSURL = NSURL(string: "tel://+4915231083520")!
+        UIApplication.sharedApplication().openURL(url)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
