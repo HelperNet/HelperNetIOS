@@ -14,22 +14,18 @@ class ViewController: UIViewController, PPKControllerDelegate {
         let myDiscoveryInfo = "EC: Epileptic Shock!".dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
         
+        // dispatch emergency call when allowed in settings
         let settings = NSUserDefaults.standardUserDefaults()
-        if (settings.boolForKey("callEmergencyOn")) {
-            NSLog("call on")
-            // todo: dispatch phone call
+        if settings.boolForKey("callEmergencyOn") {
+            let phoneNumber = settings.objectForKey("phoneNumber") as? String ?? "+491736353009"
+            let phoneUrlString = "tel://\(phoneNumber)"
+            let url: NSURL = NSURL(string: phoneUrlString)!
+            UIApplication.sharedApplication().openURL(url)
         }
-        
+    
         NSLog("Discovery Info changed")
     }
 
-   // make a phonecall by opening tel url
-    @IBAction func callPhone(sender: AnyObject) {
-        let url: NSURL = NSURL(string: "tel://+4915231083520")!
-        UIApplication.sharedApplication().openURL(url)
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         PPKController.addObserver(self)
