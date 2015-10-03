@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             locationManager.delegate = self
             locationManager.desiredAccuracy = 0
         }
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         NSLog("App started")
         return true
@@ -146,6 +148,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
 
         self.requestNotification(discoveryInfo)
     }
-    
 }
 

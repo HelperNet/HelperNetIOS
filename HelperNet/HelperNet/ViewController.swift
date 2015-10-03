@@ -115,6 +115,10 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         NSLog("%@ is no longer here", peer.peerID)
     }
     
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+        //        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
@@ -141,6 +145,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         performSegueWithIdentifier("SegueToSettings", sender: self)
     }
     
-    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }
 

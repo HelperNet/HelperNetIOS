@@ -19,7 +19,6 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         PPKController.addObserver(self)
         // Do any additional setup after loading the view, typically from a nib.
     }
-
     
     override func viewWillDisappear(animated: Bool) {
         helperNumber = 0
@@ -55,5 +54,9 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
     @IBAction func abortButtonReleased(sender: AnyObject) {
         imageView.image = UIImage(named:"abort")
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        print("prepareForSegue");
+//    }
 }
 
