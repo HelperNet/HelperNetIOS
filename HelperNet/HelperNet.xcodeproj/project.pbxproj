@@ -55,7 +55,7 @@
 		C602CC701BBF96A900ED664A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C602CC731BBF96A900ED664A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C602CC751BBF96A900ED664A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = P2PKit.framework; sourceTree = "<group>"; };
+		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P2PKit.framework; path = HelperNet/P2PKit.framework; sourceTree = "<group>"; };
 		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C69F6ACC1BBF470A00782756 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6918221BBF4E0D00A3B07B /* libicucore.tbd */,
+				C69F6AC41BBF462400782756 /* P2PKit.framework */,
 				C69F6AD01BBF471900782756 /* Foundation.framework */,
 				C69F6ACE1BBF471100782756 /* Security.framework */,
 				C69F6ACC1BBF470A00782756 /* CFNetwork.framework */,
@@ -144,7 +145,6 @@
 		FA6739831BBF43FE009E82C1 /* HelperNet */ = {
 			isa = PBXGroup;
 			children = (
-				C69F6AC41BBF462400782756 /* P2PKit.framework */,
 				FA6739841BBF43FE009E82C1 /* AppDelegate.swift */,
 				FA6739861BBF43FE009E82C1 /* ViewController.swift */,
 				C69F6AD31BBF489600782756 /* HelperNet-Bridging-Header.h */,
@@ -473,6 +473,7 @@
 				C602CC7A1BBF96A900ED664A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA67397C1BBF43FE009E82C1 /* Build configuration list for PBXProject "HelperNet" */ = {
 			isa = XCConfigurationList;

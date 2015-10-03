@@ -42,4 +42,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         return UIEdgeInsetsZero
     }
     
+    @IBAction func emergencyButtonPressed(sender: AnyObject) {
+        extensionContext?.openURL(NSURL(string: "NetHelper://?emergency=true")!, completionHandler: nil)
+    }
 }
