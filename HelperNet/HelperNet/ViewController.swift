@@ -14,6 +14,7 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     let locationManager = CLLocationManager()
     var messagedLoc = false
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBAction func buttonCall(sender: AnyObject) {
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
@@ -32,6 +33,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             let url: NSURL = NSURL(string: phoneUrlString)!
             UIApplication.sharedApplication().openURL(url)
         }
+        
+        imageView.image = UIImage(named: "emergency")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,6 +55,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -60,12 +65,14 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
             let lat = "\(locValue.latitude)"
             let lng = "\(locValue.longitude)"
-            let myDiscoveryInfo = ("LO: " + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
+            let myDiscoveryInfo = ("LO:" + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
             PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+            NSLog("LO: " + lat + "," + lng)
             if CLLocationManager.locationServicesEnabled() {
                 locationManager.stopUpdatingLocation()
             }
         }
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,5 +100,19 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         return message
     }
 
+    @IBAction func emergencyButtonTouched(sender: AnyObject) {
+        imageView.image = UIImage(named: "emergency_pressed")
+    }
+    
+    
+    @IBAction func emergencyButtonReleased(sender: AnyObject) {
+        imageView.image = UIImage(named: "emergency")
+    }
+    
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("SegueToSettings", sender: self)
+    }
+    
+    
 }
 

@@ -11,6 +11,12 @@
 		C602CC711BBF96A900ED664A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C602CC701BBF96A900ED664A /* TodayViewController.swift */; };
 		C602CC741BBF96A900ED664A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C602CC721BBF96A900ED664A /* MainInterface.storyboard */; };
 		C602CC781BBF96A900ED664A /* Emergency Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C6442E891BBFF67700750A35 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6442E881BBFF67700750A35 /* settings_icon.png */; settings = {ASSET_TAGS = (); }; };
+		C6442E8D1BBFF8B500750A35 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C6442E8A1BBFF8B500750A35 /* background.png */; settings = {ASSET_TAGS = (); }; };
+		C6442E8E1BBFF8B500750A35 /* emergency.png in Resources */ = {isa = PBXBuildFile; fileRef = C6442E8B1BBFF8B500750A35 /* emergency.png */; settings = {ASSET_TAGS = (); }; };
+		C6442E8F1BBFF8B500750A35 /* emergency_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C6442E8C1BBFF8B500750A35 /* emergency_pressed.png */; settings = {ASSET_TAGS = (); }; };
+		C6442E911BC0016100750A35 /* abort.png in Resources */ = {isa = PBXBuildFile; fileRef = C6442E901BC0016100750A35 /* abort.png */; settings = {ASSET_TAGS = (); }; };
+		C6442E931BC0030100750A35 /* abort_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C6442E921BC0030100750A35 /* abort_pressed.png */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC41BBF462400782756 /* P2PKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */; };
 		C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC81BBF46DD00782756 /* CoreLocation.framework */; };
@@ -57,6 +63,12 @@
 		C602CC701BBF96A900ED664A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C602CC731BBF96A900ED664A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C602CC751BBF96A900ED664A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6442E881BBFF67700750A35 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
+		C6442E8A1BBFF8B500750A35 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		C6442E8B1BBFF8B500750A35 /* emergency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emergency.png; sourceTree = "<group>"; };
+		C6442E8C1BBFF8B500750A35 /* emergency_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emergency_pressed.png; sourceTree = "<group>"; };
+		C6442E901BC0016100750A35 /* abort.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abort.png; sourceTree = "<group>"; };
+		C6442E921BC0030100750A35 /* abort_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abort_pressed.png; sourceTree = "<group>"; };
 		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P2PKit.framework; path = HelperNet/P2PKit.framework; sourceTree = "<group>"; };
 		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -120,6 +132,19 @@
 			path = "Emergency Widget";
 			sourceTree = "<group>";
 		};
+		C6442E871BBFF64600750A35 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C6442E8A1BBFF8B500750A35 /* background.png */,
+				C6442E8B1BBFF8B500750A35 /* emergency.png */,
+				C6442E8C1BBFF8B500750A35 /* emergency_pressed.png */,
+				C6442E881BBFF67700750A35 /* settings_icon.png */,
+				C6442E901BC0016100750A35 /* abort.png */,
+				C6442E921BC0030100750A35 /* abort_pressed.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		FA6739781BBF43FE009E82C1 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +174,7 @@
 		FA6739831BBF43FE009E82C1 /* HelperNet */ = {
 			isa = PBXGroup;
 			children = (
+				C6442E871BBFF64600750A35 /* Images */,
 				FA6739841BBF43FE009E82C1 /* AppDelegate.swift */,
 				FA6739861BBF43FE009E82C1 /* ViewController.swift */,
 				C69F6AD31BBF489600782756 /* HelperNet-Bridging-Header.h */,
@@ -253,6 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */,
+				C6442E931BC0030100750A35 /* abort_pressed.png in Resources */,
+				C6442E8E1BBFF8B500750A35 /* emergency.png in Resources */,
+				C6442E8D1BBFF8B500750A35 /* background.png in Resources */,
+				C6442E891BBFF67700750A35 /* settings_icon.png in Resources */,
+				C6442E911BC0016100750A35 /* abort.png in Resources */,
+				C6442E8F1BBFF8B500750A35 /* emergency_pressed.png in Resources */,
 				FA67398C1BBF43FE009E82C1 /* Assets.xcassets in Resources */,
 				FA67398A1BBF43FE009E82C1 /* Main.storyboard in Resources */,
 			);

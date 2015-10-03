@@ -79,8 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
             let lat = "\(locValue.latitude)"
             let lng = "\(locValue.longitude)"
-            let myDiscoveryInfo = ("LO: " + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
+            let myDiscoveryInfo = ("LO:" + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
             PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+            NSLog("LO: " + lat + "," + lng)
             if CLLocationManager.locationServicesEnabled() {
                 locationManager.stopUpdatingLocation()
             }
