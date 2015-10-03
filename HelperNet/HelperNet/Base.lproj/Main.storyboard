@@ -36,13 +36,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aGR-YK-nxz">
-<<<<<<< HEAD
                                 <rect key="frame" x="276" y="31" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-=======
-                                <rect key="frame" x="275.99999955296516" y="31" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
->>>>>>> origin/master
                                 <animations/>
                                 <state key="normal" title="Button" image="settings_icon.png"/>
                                 <connections>
