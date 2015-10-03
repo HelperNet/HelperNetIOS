@@ -21,6 +21,7 @@
                                 <state key="normal" title="PublishInfo"/>
                                 <connections>
                                     <action selector="buttonCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGW-dg-nTi"/>
+                                    <segue destination="VZn-1K-3AX" kind="push" id="xvn-EI-LSd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0UJ-Fl-8nt">
@@ -43,6 +44,34 @@
             </objects>
             <point key="canvasLocation" x="723" y="338"/>
         </scene>
+        <!--Emergency View Controller-->
+        <scene sceneID="6o2-vP-to2">
+            <objects>
+                <viewController id="VZn-1K-3AX" customClass="EmergencyViewController" customModule="HelperNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TxG-7E-mxR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0RD-aK-WW0">
+                                <rect key="frame" x="137" y="278" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="qK5-NE-eLR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XE0-tl-5WP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsQ-KG-MGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1291" y="24"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="XgU-JK-6XF">
             <objects>
@@ -56,7 +85,7 @@
                             <tableViewSection headerTitle="Emergency Details" id="MJP-CL-HAf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cQK-Qh-9T6">
-                                        <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQK-Qh-9T6" id="e8o-OZ-vQc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -83,7 +112,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WQY-bg-r01">
-                                        <rect key="frame" x="0.0" y="157.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WQY-bg-r01" id="fhy-kc-YAR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -112,7 +141,7 @@
                             <tableViewSection headerTitle="Describe your likely emergency situation" id="ebG-5V-2V7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="nZr-12-YPr">
-                                        <rect key="frame" x="0.0" y="251.5" width="320" height="98"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="320" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nZr-12-YPr" id="bja-UE-nN1">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>
@@ -148,7 +177,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xef-12-B7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184" y="338"/>
+            <point key="canvasLocation" x="1294" y="720"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LRL-Wg-2zU">
@@ -171,4 +200,7 @@
             <point key="canvasLocation" x="233.59999999999999" y="338.90666666666664"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qK5-NE-eLR"/>
+    </inferredMetricsTieBreakers>
 </document>
