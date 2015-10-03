@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             locationManager.delegate = self
             locationManager.desiredAccuracy = 0
         }
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         NSLog("App started")
         return true
@@ -166,7 +168,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
 
         self.requestNotification(discoveryInfo)
     }
- 
     
     //=== LIFECYCLE METHODS
     
@@ -190,7 +191,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-}
+    }}
 

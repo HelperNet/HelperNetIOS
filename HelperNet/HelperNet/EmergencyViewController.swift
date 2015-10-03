@@ -19,7 +19,6 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         PPKController.addObserver(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
     
     override func viewWillDisappear(animated: Bool) {
         helperNumber = 0

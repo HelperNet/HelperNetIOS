@@ -50,7 +50,7 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)    
     }
 
     override func viewDidLoad() {
@@ -101,7 +101,6 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         // Dispose of any resources that can be recreated.
     }
 
-    
     func getNotificationMessage() -> String {
         let defaults = NSUserDefaults.standardUserDefaults()
         let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
@@ -126,6 +125,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         performSegueWithIdentifier("SegueToSettings", sender: self)
     }
     
-    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }
 
