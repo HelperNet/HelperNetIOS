@@ -52,6 +52,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         PPKController.startOnlineMessaging()
     }
 
-
 }
 
