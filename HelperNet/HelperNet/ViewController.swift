@@ -31,7 +31,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             .sharedApplication()
             .openURL(NSURL(string: ("http://maps.apple.com/?daddr=" + (appDelegate?.coordinates)!))!)
     }
-    @IBOutlet weak var map: UIButton!
+
+    @IBOutlet weak var map: UIView!
     
     func dispatchCall(fullMessage: String) {
         NSLog("Pushing full message -- "+fullMessage)

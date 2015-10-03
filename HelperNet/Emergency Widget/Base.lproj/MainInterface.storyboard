@@ -24,7 +24,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cq4-uK-0kL"/>
                                 </constraints>
-                                <state key="normal" title="Emergency Call">
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Broadcast Emergency">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
