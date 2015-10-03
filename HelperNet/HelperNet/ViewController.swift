@@ -8,10 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PPKControllerDelegate {
+    
+    @IBOutlet weak var messageLabel: UILabel!
 
+    @IBAction func buttonCall(sender: AnyObject) {
+        let myDiscoveryInfo = "EC: Epileptic Shock!".dataUsingEncoding(NSUTF8StringEncoding)
+        PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+        NSLog("Discovery Info changed")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        PPKController.addObserver(self)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +28,20 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func p2pPeerDiscovered(peer: PPKPeer!) {
+        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
+        NSLog("%@ is here with discovery info: %@", peer.peerID, discoveryInfoString!)
+    }
+    
+    func p2pPeerLost(peer: PPKPeer!) {
+        NSLog("%@ is no longer here", peer.peerID)
+    }
+    
+    func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
+        let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
+        NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
+    }
 
 }
 
