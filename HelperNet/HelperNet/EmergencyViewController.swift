@@ -10,8 +10,10 @@ import UIKit
 
 class EmergencyViewController: UIViewController, PPKControllerDelegate {
     
+    @IBOutlet weak var helperNumberLabel: UILabel!
     var helperNumber = 0
     
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         PPKController.addObserver(self)
@@ -42,7 +44,16 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         self.requestNotification(discoveryInfo)
     }
-
     
+    @IBAction func abortButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("SegueToEmergencyButton", sender: self)
+        imageView.image = UIImage(named:"abort")
+    }
+    @IBAction func abortButtonTouched(sender: AnyObject) {
+        imageView.image = UIImage(named:"abort_pressed")
+    }
+    @IBAction func abortButtonReleased(sender: AnyObject) {
+        imageView.image = UIImage(named:"abort")
+    }
 }
 

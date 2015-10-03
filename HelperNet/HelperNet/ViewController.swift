@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, PPKControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBAction func buttonCall(sender: AnyObject) {
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
@@ -22,6 +23,8 @@ class ViewController: UIViewController, PPKControllerDelegate {
             let url: NSURL = NSURL(string: phoneUrlString)!
             UIApplication.sharedApplication().openURL(url)
         }
+        
+        imageView.image = UIImage(named: "emergency")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -31,6 +34,7 @@ class ViewController: UIViewController, PPKControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         PPKController.addObserver(self)
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -59,5 +63,19 @@ class ViewController: UIViewController, PPKControllerDelegate {
         return message
     }
 
+    @IBAction func emergencyButtonTouched(sender: AnyObject) {
+        imageView.image = UIImage(named: "emergency_pressed")
+    }
+    
+    
+    @IBAction func emergencyButtonReleased(sender: AnyObject) {
+        imageView.image = UIImage(named: "emergency")
+    }
+    
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("SegueToSettings", sender: self)
+    }
+    
+    
 }
 

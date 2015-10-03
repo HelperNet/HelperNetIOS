@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="74v-FL-g65">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="74v-FL-g65">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -13,24 +13,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vtl-n5-ccc">
-                                <rect key="frame" x="56" y="318" width="208" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emergency.png" id="ijl-la-bKm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.73959015052356025" green="0.73959015052356025" blue="0.73959015052356025" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="PublishInfo"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aGR-YK-nxz">
+                                <rect key="frame" x="276" y="524" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <animations/>
+                                <state key="normal" title="Button" image="settings_icon.png"/>
                                 <connections>
-                                    <action selector="buttonCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGW-dg-nTi"/>
-                                    <segue destination="VZn-1K-3AX" kind="push" id="xvn-EI-LSd"/>
+                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PNY-yU-Aht"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0UJ-Fl-8nt">
-                                <rect key="frame" x="253" y="20" width="60" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vtl-n5-ccc">
+                                <rect key="frame" x="82" y="206" width="157" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.73959015052356025" green="0.73959015052356025" blue="0.73959015052356025" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="EXK-S4-Ovy" kind="push" id="a0w-0N-Icg"/>
+                                    <action selector="buttonCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGW-dg-nTi"/>
+                                    <action selector="emergencyButtonReleased:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="7wx-o8-aF8"/>
+                                    <action selector="emergencyButtonTouched:" destination="BYZ-38-t0r" eventType="touchDown" id="a0B-Sj-ERn"/>
+                                    <segue destination="VZn-1K-3AX" kind="push" id="xvn-EI-LSd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,10 +50,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="7f0-1h-dZJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageView" destination="ijl-la-bKm" id="gZ3-Ow-OOe"/>
+                        <segue destination="EXK-S4-Ovy" kind="push" identifier="SegueToSettings" id="Zd9-D7-sGm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="338"/>
+            <point key="canvasLocation" x="725" y="338"/>
         </scene>
         <!--Emergency View Controller-->
         <scene sceneID="6o2-vP-to2">
@@ -52,25 +67,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0RD-aK-WW0">
-                                <rect key="frame" x="137" y="278" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abort.png" id="GwJ-JP-CR0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0RD-aK-WW0">
+                                <rect key="frame" x="121" y="335" width="79" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="qK5-NE-eLR"/>
+                                    <action selector="abortButtonPressed:" destination="VZn-1K-3AX" eventType="touchUpInside" id="rG6-HA-fg6"/>
+                                    <action selector="abortButtonReleased:" destination="VZn-1K-3AX" eventType="touchUpOutside" id="eDg-bE-u3y"/>
+                                    <action selector="abortButtonTouched:" destination="VZn-1K-3AX" eventType="touchDown" id="GV9-X6-XP1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S90-Gr-hMv">
+                                <rect key="frame" x="20" y="178" width="280" height="112"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <animations/>
+                                <attributedString key="attributedText">
+                                    <fragment content="people have responded  to your call">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AhY-vZ-eEq">
+                                <rect key="frame" x="140" y="144" width="41" height="66.5"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <animations/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="40" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XE0-tl-5WP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="helperNumberLabel" destination="AhY-vZ-eEq" id="hqL-aG-CM4"/>
+                        <outlet property="imageView" destination="GwJ-JP-CR0" id="qva-u1-3AX"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="SegueToEmergencyButton" id="I1W-Fe-RLW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsQ-KG-MGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ihg-PB-rat">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                </imageView>
             </objects>
-            <point key="canvasLocation" x="1291" y="24"/>
+            <point key="canvasLocation" x="1303" y="-90"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="XgU-JK-6XF">
@@ -200,7 +267,12 @@
             <point key="canvasLocation" x="233.59999999999999" y="338.90666666666664"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="abort.png" width="1242" height="2208"/>
+        <image name="emergency.png" width="1242" height="2208"/>
+        <image name="settings_icon.png" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qK5-NE-eLR"/>
+        <segue reference="I1W-Fe-RLW"/>
     </inferredMetricsTieBreakers>
 </document>
