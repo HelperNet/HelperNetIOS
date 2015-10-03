@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C629CD7D1BBF4DF60097212B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C629CD7C1BBF4DF60097212B /* libicucore.tbd */; };
 		C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC41BBF462400782756 /* P2PKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */; };
 		C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC81BBF46DD00782756 /* CoreLocation.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C629CD7C1BBF4DF60097212B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = P2PKit.framework; sourceTree = "<group>"; };
 		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C629CD7D1BBF4DF60097212B /* libicucore.tbd in Frameworks */,
 				C69F6AD11BBF471900782756 /* Foundation.framework in Frameworks */,
 				C69F6ACF1BBF471100782756 /* Security.framework in Frameworks */,
 				C69F6ACD1BBF470A00782756 /* CFNetwork.framework in Frameworks */,
@@ -57,6 +60,7 @@
 		FA6739781BBF43FE009E82C1 = {
 			isa = PBXGroup;
 			children = (
+				C629CD7C1BBF4DF60097212B /* libicucore.tbd */,
 				C69F6AD01BBF471900782756 /* Foundation.framework */,
 				C69F6ACE1BBF471100782756 /* Security.framework */,
 				C69F6ACC1BBF470A00782756 /* CFNetwork.framework */,
@@ -121,6 +125,11 @@
 				TargetAttributes = {
 					FA6739801BBF43FE009E82C1 = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

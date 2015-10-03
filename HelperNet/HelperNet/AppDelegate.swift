@@ -9,13 +9,23 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+       PPKController.enableWithConfiguration("eyJzaWduYXR1cmUiOiJxM1AxT0NpZzlHNHNCZnVlamJqbThzVmlHMlVNb3QxeVNpNVFiM0U2NGJmNFRCVmIwZWJQTGtSUHh4eTMwdnBRbzBlOEVNYnhtQWNXbXdmT3VmWmxDWW0vMzRPbFJqOUljQ3lGVEVTOUduRGd1M2tPSTZHcWFXd1BwZEliMlY2WGtCTmRpS0JMT296Yk1Sb1haL3ZBYTdjbWpla0lNNlVlSWNMVWtvZVhrVmM9IiwiYXBwSWQiOjEyOTMsInZhbGlkVW50aWwiOjE2ODAwLCJhcHBVVVVJRCI6IjAzMzdCMjJCLTQ2RjEtNDc2Mi1BMkM5LTJENUZBODhDODRFQiJ9", observer: self)
+        
+        NSLog("Starting discovery.")
+        let myStartDiscoveryInfo = "Hello HelperNet!".dataUsingEncoding(NSUTF8StringEncoding)
+        PPKController.startP2PDiscoveryWithDiscoveryInfo(myStartDiscoveryInfo)
+
+        NSLog("Pushing new discovery info.")
+        let myNewDiscoveryInfo = "All ok!".dataUsingEncoding(NSUTF8StringEncoding)
+        PPKController.pushNewP2PDiscoveryInfo(myNewDiscoveryInfo)
+        
         return true
     }
 
@@ -41,6 +51,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // PKK stuff
+    func PPKControllerInitialized() {
+        PPKController.startP2PDiscovery()
+        PPKController.startGeoDiscovery()
+        PPKController.startOnlineMessaging()
+    }
+    
+    func p2pPeerDiscovered(peer: PPKPeer!) {
+        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
+        NSLog("%@ is here with discovery info: %@", peer.peerID, discoveryInfoString!)
+    }
+    
+    func p2pPeerLost(peer: PPKPeer!) {
+        NSLog("%@ is no longer here", peer.peerID)
+    }
+    
+    func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
+        let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
+        NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
+    }
 }
 
