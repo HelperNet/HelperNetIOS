@@ -16,6 +16,12 @@ class TableViewController: UITableViewController {
     
     @IBOutlet weak var textMessage: UITextView!
     
+    @IBAction func openP2PKitUrl(sender: AnyObject) {
+        if let url = NSURL(string: "http://p2pkit.io") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(telNumber.text! as String, forKey: "phoneNumber")

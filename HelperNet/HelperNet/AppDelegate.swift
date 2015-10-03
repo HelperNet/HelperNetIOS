@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         // Override point for customization after application launch.
     PPKController.enableWithConfiguration("eyJzaWduYXR1cmUiOiJieXBGVEtaR1NVNVAzWW56ZmlDMDZ5TnRnRDZTVGRLbWNGQTFpYlpWVllCWGVpUllIazEvbEVpcG8xZVJzMTlyaW5Mb1VFNU53c3ozSk5xNkpYT0hwUVQ0YSthc1RWbHNJM3ZPS3dsOGhSZ2dzNE9zb09FUGY1UmdHZU9raEkvZHoxUzdvWGN3bUxScW45dVAydkF5NWI4anZYZ2xHZ2paajZ6YVBuVTFmb2M9IiwiYXBwSWQiOjEyODgsInZhbGlkVW50aWwiOjE2ODAwLCJhcHBVVVVJRCI6IkQ3MkIxNUM0LThGRjMtNEVDRi04RjY4LUIwQzhBNjEwRkRFMSJ9", observer:self)
         
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+        //application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert, categories: nil))
+        
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -106,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         }
         else if info.hasPrefix("LO") {
             var infoStr = info as String
-            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(3)
+            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(2)
             infoStr.removeRange(range)
 
             // do not open when app stays active
@@ -114,15 +117,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             NSLog("stored coordinates!")
             coordinates = infoStr
         }
-        else if info.hasPrefix("NOT") {
+        else if info.hasPrefix("NO") {
             // remove prefix
             var infoStr = info as String
-            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(4)
+            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(2)
             infoStr.removeRange(range)
             
             let localNotification = UILocalNotification()
             localNotification.alertAction = "Emergency"
             localNotification.alertBody = infoStr
+            localNotification.soundName = UILocalNotificationDefaultSoundName
             UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
         }
     }
