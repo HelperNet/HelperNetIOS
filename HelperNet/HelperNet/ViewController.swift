@@ -13,8 +13,11 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     
     let locationManager = CLLocationManager()
     let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+    var peopleCounter = 0
     
+    @IBOutlet weak var peopleNearby: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
     @IBAction func buttonCall(sender: AnyObject) {
         emergencyCall()
         imageView.image = UIImage(named: "emergency")
@@ -127,6 +130,30 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    func updatePeopleNearby() {
+        if (peopleCounter == 1) {
+            peopleNearby.text = String(peopleCounter) + " person nearby"
+        } else {
+            peopleNearby.text = String(peopleCounter) + " persons nearby"
+        }
+    }
+    
+    //=== P2PKIT DELEGATE
+    
+    func p2pPeerDiscovered(peer: PPKPeer!) {
+        peopleCounter += 1
+        updatePeopleNearby()
+    }
+    
+    func p2pPeerLost(peer: PPKPeer!) {
+        peopleCounter -= 1
+        if (peopleCounter < 0) {
+            peopleCounter = 0
+        }
+        
+        updatePeopleNearby()
     }
 }
 
