@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
         // Override point for customization after application launch.
     PPKController.enableWithConfiguration("eyJzaWduYXR1cmUiOiJieXBGVEtaR1NVNVAzWW56ZmlDMDZ5TnRnRDZTVGRLbWNGQTFpYlpWVllCWGVpUllIazEvbEVpcG8xZVJzMTlyaW5Mb1VFNU53c3ozSk5xNkpYT0hwUVQ0YSthc1RWbHNJM3ZPS3dsOGhSZ2dzNE9zb09FUGY1UmdHZU9raEkvZHoxUzdvWGN3bUxScW45dVAydkF5NWI4anZYZ2xHZ2paajZ6YVBuVTFmb2M9IiwiYXBwSWQiOjEyODgsInZhbGlkVW50aWwiOjE2ODAwLCJhcHBVVVVJRCI6IkQ3MkIxNUM0LThGRjMtNEVDRi04RjY4LUIwQzhBNjEwRkRFMSJ9", observer:self)
         
-        let myDiscoveryInfo = "Hello from Swift!".dataUsingEncoding(NSUTF8StringEncoding)
-        PPKController.startP2PDiscoveryWithDiscoveryInfo(myDiscoveryInfo)
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+        
+        NSLog("App started")
         
         return true
     }
@@ -47,9 +48,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate {
     }
     
     func PPKControllerInitialized() {
-        PPKController.startP2PDiscovery()
-        PPKController.startGeoDiscovery()
-        PPKController.startOnlineMessaging()
+        let myDiscoveryInfo = "OK".dataUsingEncoding(NSUTF8StringEncoding)
+        PPKController.startP2PDiscoveryWithDiscoveryInfo(myDiscoveryInfo)
+        NSLog("PPK Controller Initialized")
+    }
+    
+    func p2pPeerDiscovered(peer: PPKPeer!) {
+        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
+        NSLog("%@: %@", peer.peerID, discoveryInfoString!)
+        
+        if !(discoveryInfoString!.hasPrefix("OK")) {
+            var localNotification = UILocalNotification()
+            localNotification.alertAction = "Emergency"
+            localNotification.alertBody = discoveryInfoString! as String
+            UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+        }
+    }
+    
+    func p2pPeerLost(peer: PPKPeer!) {
+        NSLog("%@ is no longer here", peer.peerID)
+    }
+    
+    func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
+        let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
+        NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
+        
+        if !(discoveryInfo!.hasPrefix("OK")) {
+            var localNotification = UILocalNotification()
+            localNotification.alertAction = "Emergency"
+            localNotification.alertBody = discoveryInfo! as String
+            UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+        }
     }
 
 }
