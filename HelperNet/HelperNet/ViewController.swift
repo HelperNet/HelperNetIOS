@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, PPKControllerDelegate {
-    
-    @IBOutlet weak var messageLabel: UILabel!
 
     @IBAction func buttonCall(sender: AnyObject) {
         let myDiscoveryInfo = "EC: Epileptic Shock!".dataUsingEncoding(NSUTF8StringEncoding)
