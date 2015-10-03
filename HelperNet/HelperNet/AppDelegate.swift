@@ -13,14 +13,26 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-    var locationManager: CLLocationManager?
-    var helperNumber = 0
+    let locationManager = CLLocationManager()
+    var messagedLoc = false
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
     PPKController.enableWithConfiguration("eyJzaWduYXR1cmUiOiJieXBGVEtaR1NVNVAzWW56ZmlDMDZ5TnRnRDZTVGRLbWNGQTFpYlpWVllCWGVpUllIazEvbEVpcG8xZVJzMTlyaW5Mb1VFNU53c3ozSk5xNkpYT0hwUVQ0YSthc1RWbHNJM3ZPS3dsOGhSZ2dzNE9zb09FUGY1UmdHZU9raEkvZHoxUzdvWGN3bUxScW45dVAydkF5NWI4anZYZ2xHZ2paajZ6YVBuVTFmb2M9IiwiYXBwSWQiOjEyODgsInZhbGlkVW50aWwiOjE2ODAwLCJhcHBVVVVJRCI6IkQ3MkIxNUM0LThGRjMtNEVDRi04RjY4LUIwQzhBNjEwRkRFMSJ9", observer:self)
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        // setup parameters for location services
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = 0
+        }
         
         NSLog("App started")
         return true
@@ -38,8 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
     {
+        // set notification message set by user or default one
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+        
+        // start location service
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        
+        messagedLoc = false
         
         // dispatch emergency call when allowed in settings
         let settings = NSUserDefaults.standardUserDefaults()
@@ -51,6 +71,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         }
         return true
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !messagedLoc {
+            messagedLoc = true
+            let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
+            let lat = "\(locValue.latitude)"
+            let lng = "\(locValue.longitude)"
+            let myDiscoveryInfo = ("LO: " + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
+            PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.stopUpdatingLocation()
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -82,17 +116,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     }
         
     func getNotificationMessage() -> String {
+        // from settings get the notification message
         let defaults = NSUserDefaults.standardUserDefaults()
         let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
         return message
     }
     
     func requestNotification(info: NSString!) {
+        // dispatch on DiscoveryInfo
         if info.hasPrefix("OK") || info.hasPrefix("OT") {
             // "OT" covered in ViewController, "OK" remains silent
         }
+        else if info.hasPrefix("LO") {
+            var infoStr = info as String
+            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(3)
+            infoStr.removeRange(range)
+            UIApplication.sharedApplication().openURL(NSURL(string: ("http://maps.apple.com/?ll=" + infoStr))!)
+        }
         else {
-            helperNumber = 0
             let localNotification = UILocalNotification()
             localNotification.alertAction = "Emergency"
             localNotification.alertBody = self.getNotificationMessage()

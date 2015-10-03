@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController, PPKControllerDelegate {
+class ViewController: UIViewController, PPKControllerDelegate, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+    var messagedLoc = false
 
     @IBAction func buttonCall(sender: AnyObject) {
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        
+        messagedLoc = false
         
         // dispatch emergency call when allowed in settings
         let settings = NSUserDefaults.standardUserDefaults()
@@ -31,7 +41,31 @@ class ViewController: UIViewController, PPKControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         PPKController.addObserver(self)
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !messagedLoc {
+            messagedLoc = true
+            let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
+            let lat = "\(locValue.latitude)"
+            let lng = "\(locValue.longitude)"
+            let myDiscoveryInfo = ("LO: " + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
+            PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.stopUpdatingLocation()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
