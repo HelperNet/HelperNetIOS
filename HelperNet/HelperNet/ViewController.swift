@@ -133,7 +133,9 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     }
     
     func updatePeopleNearby() {
-        if (peopleCounter == 1) {
+        if (peopleCounter == 0) {
+          peopleNearby.text = "no person nearby"
+        } else if (peopleCounter == 1) {
             peopleNearby.text = String(peopleCounter) + " person nearby"
         } else {
             peopleNearby.text = String(peopleCounter) + " persons nearby"
