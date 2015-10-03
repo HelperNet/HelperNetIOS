@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26DD595E1BC07E9800A6910A /* map_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD595D1BC07E9800A6910A /* map_icon.png */; settings = {ASSET_TAGS = (); }; };
 		C602CC6E1BBF96A900ED664A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C602CC6D1BBF96A900ED664A /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
 		C602CC711BBF96A900ED664A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C602CC701BBF96A900ED664A /* TodayViewController.swift */; };
 		C602CC741BBF96A900ED664A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C602CC721BBF96A900ED664A /* MainInterface.storyboard */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		26DD595D1BC07E9800A6910A /* map_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_icon.png; sourceTree = "<group>"; };
 		C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Emergency Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C602CC6D1BBF96A900ED664A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		C602CC701BBF96A900ED664A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				C6F46FFA1BC0724B008FB8EC /* settings_icon.png */,
+				26DD595D1BC07E9800A6910A /* map_icon.png */,
 				C6F46FEC1BC071DD008FB8EC /* background.png */,
 				C6F46FED1BC071DD008FB8EC /* abort_pressed.png */,
 				C6F46FEE1BC071DD008FB8EC /* abort.png */,
@@ -244,11 +247,11 @@
 				TargetAttributes = {
 					C602CC6A1BBF96A900ED664A = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = FTD686N32X;
+						DevelopmentTeam = 7JUN85HZJS;
 					};
 					FA6739801BBF43FE009E82C1 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = FTD686N32X;
+						DevelopmentTeam = 7JUN85HZJS;
 					};
 				};
 			};
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */,
+				26DD595E1BC07E9800A6910A /* map_icon.png in Resources */,
 				C6F46FF41BC071DD008FB8EC /* abort_pressed.png in Resources */,
 				C6F46FF81BC071DD008FB8EC /* emergency_pressed.png in Resources */,
 				C6F46FF61BC071DD008FB8EC /* emergency_la_pressed.png in Resources */,
@@ -366,7 +370,7 @@
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "immer.HelperNet.Emergency-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -381,7 +385,7 @@
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "immer.HelperNet.Emergency-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -486,7 +490,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = immer.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
@@ -508,7 +512,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = immer.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
