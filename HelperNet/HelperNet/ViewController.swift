@@ -22,17 +22,13 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     
     
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
-        //        dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func emergencyCall() {
-        // discover peers
-        let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
-        PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+    func dispatchCall(fullMessage: String) {
+        NSLog("Pushing full message -- "+fullMessage)
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
+        // push to p2p
+        PPKController.pushNewP2PDiscoveryInfo(fullMessage.dataUsingEncoding(NSUTF8StringEncoding))
         
         appDelegate?.messagedLoc = false
         
@@ -43,6 +39,14 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             let phoneUrlString = "tel://\(phoneNumber)"
             let url: NSURL = NSURL(string: phoneUrlString)!
             UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    func emergencyCall() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        } else {
+            dispatchCall(getNotificationMessage())
         }
     }
     
@@ -77,12 +81,15 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !appDelegate!.messagedLoc  {
             appDelegate?.messagedLoc = true
+            
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
             let lat = "\(locValue.latitude)"
             let lng = "\(locValue.longitude)"
-            let myDiscoveryInfo = ("LO:" + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
-            PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
-            NSLog("LO: " + lat + "," + lng)
+            let locationMessage = ("LO:" + lat + "," + lng)
+            NSLog("Build Message -- LO: " + lat + "," + lng)
+            
+            dispatchCall(getNotificationMessage()+"|"+locationMessage)
+            
             if CLLocationManager.locationServicesEnabled() {
                 locationManager.stopUpdatingLocation()
             }
@@ -112,8 +119,13 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     func getNotificationMessage() -> String {
         let defaults = NSUserDefaults.standardUserDefaults()
         let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
-        return message
+        
+        let notificationMessage = "NOT:"+message
+        NSLog("Build Message -- "+notificationMessage)
+        
+        return notificationMessage
     }
+    
 
     @IBAction func emergencyButtonTouched(sender: AnyObject) {
         imageView.image = UIImage(named: "emergency_pressed")

@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         return message
     }
     
-    func requestNotification(info: NSString!) {
+    func perfomNotificationAction(info: NSString!) {
         // dispatch on DiscoveryInfo
         if info.hasPrefix("OK") || info.hasPrefix("OT") {
             // "OT" covered in ViewController, "OK" remains silent
@@ -121,15 +121,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             var infoStr = info as String
             let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(3)
             infoStr.removeRange(range)
-            UIApplication.sharedApplication().openURL(NSURL(string: ("http://maps.apple.com/?ll=" + infoStr))!)
+            // TODO: do not open when app stays active
+            // rather store the key and route when notification was visited
+            // UIApplication.sharedApplication().openURL(NSURL(string: ("http://maps.apple.com/?ll=" + infoStr))!)
         }
-        else {
+        else if info.hasPrefix("NOT") {
+            // remove prefix
+            var infoStr = info as String
+            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(4)
+            infoStr.removeRange(range)
+            
             let localNotification = UILocalNotification()
             localNotification.alertAction = "Emergency"
-            localNotification.alertBody = self.getNotificationMessage()
+            localNotification.alertBody = infoStr
             UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
         }
     }
+    
+    func requestNotification(notification: NSString!) {
+        NSLog("receiving notification " + (notification as String))
+        
+        // split messages by pipe operator
+        let infos = notification.componentsSeparatedByString("|")
+        
+        // apply messages
+        infos.map { perfomNotificationAction($0) }
+    }
+    
     
     func p2pPeerDiscovered(peer: PPKPeer!) {
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
