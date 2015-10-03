@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="74v-FL-g65">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="74v-FL-g65">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -18,15 +18,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aGR-YK-nxz">
-                                <rect key="frame" x="276" y="524" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <animations/>
-                                <state key="normal" title="Button" image="settings_icon.png"/>
-                                <connections>
-                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PNY-yU-Aht"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vtl-n5-ccc">
                                 <rect key="frame" x="82" y="206" width="157" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -41,7 +32,16 @@
                                     <action selector="buttonCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGW-dg-nTi"/>
                                     <action selector="emergencyButtonReleased:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="7wx-o8-aF8"/>
                                     <action selector="emergencyButtonTouched:" destination="BYZ-38-t0r" eventType="touchDown" id="a0B-Sj-ERn"/>
-                                    <segue destination="VZn-1K-3AX" kind="push" id="xvn-EI-LSd"/>
+                                    <segue destination="VZn-1K-3AX" kind="push" identifier="SegueToEmergency" id="xvn-EI-LSd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aGR-YK-nxz">
+                                <rect key="frame" x="275.99999955296516" y="31.000001274049396" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <animations/>
+                                <state key="normal" title="Button" image="settings_icon.png"/>
+                                <connections>
+                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PNY-yU-Aht"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,9 +83,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="abortButtonPressed:" destination="VZn-1K-3AX" eventType="touchUpInside" id="rG6-HA-fg6"/>
-                                    <action selector="abortButtonReleased:" destination="VZn-1K-3AX" eventType="touchUpOutside" id="eDg-bE-u3y"/>
-                                    <action selector="abortButtonTouched:" destination="VZn-1K-3AX" eventType="touchDown" id="GV9-X6-XP1"/>
+                                    <segue destination="4aU-JY-HXm" kind="unwind" unwindAction="unwindToVC:" id="4EA-8U-vVW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S90-Gr-hMv">
@@ -127,10 +125,10 @@
                     <connections>
                         <outlet property="helperNumberLabel" destination="AhY-vZ-eEq" id="hqL-aG-CM4"/>
                         <outlet property="imageView" destination="GwJ-JP-CR0" id="qva-u1-3AX"/>
-                        <segue destination="BYZ-38-t0r" kind="push" identifier="SegueToEmergencyButton" id="I1W-Fe-RLW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsQ-KG-MGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4aU-JY-HXm" userLabel="Exit" sceneMemberID="exit"/>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ihg-PB-rat">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,7 +150,7 @@
                             <tableViewSection headerTitle="Emergency Details" id="MJP-CL-HAf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cQK-Qh-9T6">
-                                        <rect key="frame" x="0.0" y="49.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQK-Qh-9T6" id="e8o-OZ-vQc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -179,7 +177,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WQY-bg-r01">
-                                        <rect key="frame" x="0.0" y="93.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WQY-bg-r01" id="fhy-kc-YAR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -208,7 +206,7 @@
                             <tableViewSection headerTitle="Describe your likely emergency situation" id="ebG-5V-2V7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="nZr-12-YPr">
-                                        <rect key="frame" x="0.0" y="187.5" width="320" height="98"/>
+                                        <rect key="frame" x="0.0" y="251.5" width="320" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nZr-12-YPr" id="bja-UE-nN1">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>
@@ -272,7 +270,4 @@
         <image name="emergency.png" width="1242" height="2208"/>
         <image name="settings_icon.png" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="I1W-Fe-RLW"/>
-    </inferredMetricsTieBreakers>
 </document>

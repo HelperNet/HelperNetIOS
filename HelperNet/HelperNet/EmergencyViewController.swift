@@ -19,6 +19,7 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         PPKController.addObserver(self)
         // Do any additional setup after loading the view, typically from a nib.
     }
+
     
     override func viewWillDisappear(animated: Bool) {
         helperNumber = 0

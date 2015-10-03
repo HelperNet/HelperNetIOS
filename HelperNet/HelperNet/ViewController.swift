@@ -12,6 +12,17 @@ class ViewController: UIViewController, PPKControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func buttonCall(sender: AnyObject) {
+        emergencyCall()
+        imageView.image = UIImage(named: "emergency")
+    }
+    
+    
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+        //        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func emergencyCall() {
+        // discover peers
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
         
@@ -23,8 +34,6 @@ class ViewController: UIViewController, PPKControllerDelegate {
             let url: NSURL = NSURL(string: phoneUrlString)!
             UIApplication.sharedApplication().openURL(url)
         }
-        
-        imageView.image = UIImage(named: "emergency")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,8 +43,13 @@ class ViewController: UIViewController, PPKControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         PPKController.addObserver(self)
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        // Do any additional setup after loading the view, typically from a nib.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "triggerMySegue:", name: "segueListener", object: nil)
+    }
+    
+    @objc func triggerMySegue(notification: NSNotification) {
+        
+        performSegueWithIdentifier("SegueToEmergency", sender: self)
+        emergencyCall()
     }
 
     override func didReceiveMemoryWarning() {

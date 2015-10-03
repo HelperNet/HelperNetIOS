@@ -38,17 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
     {
-        let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
-        PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
-        
-        // dispatch emergency call when allowed in settings
-        let settings = NSUserDefaults.standardUserDefaults()
-        if settings.boolForKey("callEmergencyOn") {
-            let phoneNumber = settings.objectForKey("phoneNumber") as? String ?? "+491736353009"
-            let phoneUrlString = "tel://\(phoneNumber)"
-            let url: NSURL = NSURL(string: phoneUrlString)!
-            UIApplication.sharedApplication().openURL(url)
-        }
+        NSNotificationCenter.defaultCenter().postNotificationName("segueListener", object: nil)
         return true
         
     }
