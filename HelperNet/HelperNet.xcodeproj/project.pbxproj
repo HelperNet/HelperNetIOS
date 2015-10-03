@@ -11,6 +11,7 @@
 		C602CC711BBF96A900ED664A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C602CC701BBF96A900ED664A /* TodayViewController.swift */; };
 		C602CC741BBF96A900ED664A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C602CC721BBF96A900ED664A /* MainInterface.storyboard */; };
 		C602CC781BBF96A900ED664A /* Emergency Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C602CC6B1BBF96A900ED664A /* Emergency Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C602CC811BBFB43C00ED664A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C602CC801BBFB43C00ED664A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC51BBF462400782756 /* P2PKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC41BBF462400782756 /* P2PKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C69F6AC71BBF46D600782756 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */; };
 		C69F6AC91BBF46DD00782756 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69F6AC81BBF46DD00782756 /* CoreLocation.framework */; };
@@ -55,6 +56,7 @@
 		C602CC701BBF96A900ED664A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C602CC731BBF96A900ED664A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C602CC751BBF96A900ED664A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C602CC801BBFB43C00ED664A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C69F6AC41BBF462400782756 /* P2PKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P2PKit.framework; path = HelperNet/P2PKit.framework; sourceTree = "<group>"; };
 		C69F6AC61BBF46D600782756 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C69F6AC81BBF46DD00782756 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -152,6 +154,7 @@
 				FA67398B1BBF43FE009E82C1 /* Assets.xcassets */,
 				FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */,
 				FA6739901BBF43FE009E82C1 /* Info.plist */,
+				C602CC801BBFB43C00ED664A /* Images.xcassets */,
 			);
 			path = HelperNet;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */,
+				C602CC811BBFB43C00ED664A /* Images.xcassets in Resources */,
 				FA67398C1BBF43FE009E82C1 /* Assets.xcassets in Resources */,
 				FA67398A1BBF43FE009E82C1 /* Main.storyboard in Resources */,
 			);
