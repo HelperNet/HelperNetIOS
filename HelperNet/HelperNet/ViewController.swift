@@ -84,8 +84,8 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
             let lat = "\(locValue.latitude)"
             let lng = "\(locValue.longitude)"
-            let locationMessage = ("LO:" + lat + "," + lng)
-            NSLog("Build Message -- LO: " + lat + "," + lng)
+            let locationMessage = ("LO" + lat + "," + lng)
+            NSLog("Build Message -- LO " + lat + "," + lng)
             
             dispatchCall(getNotificationMessage()+"|"+locationMessage)
             
@@ -106,7 +106,7 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         let defaults = NSUserDefaults.standardUserDefaults()
         let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
         
-        let notificationMessage = "NOT:"+message
+        let notificationMessage = "NO"+message
         NSLog("Build Message -- "+notificationMessage)
         
         return notificationMessage

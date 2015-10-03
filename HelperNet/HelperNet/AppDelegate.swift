@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         }
         else if info.hasPrefix("LO") {
             var infoStr = info as String
-            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(3)
+            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(2)
             infoStr.removeRange(range)
 
             // do not open when app stays active
@@ -112,10 +112,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             NSLog("stored coordinates!")
             coordinates = infoStr
         }
-        else if info.hasPrefix("NOT") {
+        else if info.hasPrefix("NO") {
             // remove prefix
             var infoStr = info as String
-            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(4)
+            let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(2)
             infoStr.removeRange(range)
             
             let localNotification = UILocalNotification()
