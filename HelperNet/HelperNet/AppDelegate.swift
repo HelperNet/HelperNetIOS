@@ -58,11 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         
         NSNotificationCenter.defaultCenter().postNotificationName("segueListener", object: nil)
         return true
-        
-        messagedLoc = false
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !messagedLoc {
             messagedLoc = true
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
@@ -121,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             var infoStr = info as String
             let range = infoStr.startIndex..<infoStr.startIndex.advancedBy(3)
             infoStr.removeRange(range)
-            UIApplication.sharedApplication().openURL(NSURL(string: ("http://maps.apple.com/?ll=" + infoStr))!)
+            UIApplication.sharedApplication().openURL(NSURL(string: ("http://maps.apple.com/?daddr=" + infoStr))!)
         }
         else {
             let localNotification = UILocalNotification()

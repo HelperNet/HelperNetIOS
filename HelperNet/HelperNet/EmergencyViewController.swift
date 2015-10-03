@@ -47,7 +47,6 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
     }
     
     @IBAction func abortButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("SegueToEmergencyButton", sender: self)
         imageView.image = UIImage(named:"abort")
     }
     @IBAction func abortButtonTouched(sender: AnyObject) {

@@ -37,7 +37,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aGR-YK-nxz">
                                 <rect key="frame" x="276" y="31" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Button" image="settings_icon.png"/>
                                 <connections>
@@ -83,6 +83,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="abortButtonPressed:" destination="VZn-1K-3AX" eventType="touchUpOutside" id="pmr-5B-NSQ"/>
+                                    <action selector="abortButtonReleased:" destination="VZn-1K-3AX" eventType="touchUpInside" id="GmW-OF-hFz"/>
+                                    <action selector="abortButtonTouched:" destination="VZn-1K-3AX" eventType="touchDown" id="P3q-Cs-DTf"/>
                                     <segue destination="4aU-JY-HXm" kind="unwind" unwindAction="unwindToVC:" id="4EA-8U-vVW"/>
                                 </connections>
                             </button>

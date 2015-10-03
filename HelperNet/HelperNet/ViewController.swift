@@ -21,11 +21,6 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         imageView.image = UIImage(named: "emergency")
     }
     
-    
-    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
-        //        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     func emergencyCall() {
         // discover peers
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
@@ -79,7 +74,7 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         emergencyCall()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !appDelegate!.messagedLoc  {
             appDelegate?.messagedLoc = true
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
