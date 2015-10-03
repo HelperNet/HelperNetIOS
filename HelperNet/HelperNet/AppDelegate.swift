@@ -22,9 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
         
         NSLog("App started")
-        
         return true
     }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if ( application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background )
+        {
+            print("Ah, push it push it good; Ah, push it push it real good")
+        }
+    }
+    
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
     {
@@ -60,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         PPKController.startP2PDiscoveryWithDiscoveryInfo(myDiscoveryInfo)
         NSLog("PPK Controller Initialized")
     }
-    
+        
     func getNotificationMessage() -> String {
         let defaults = NSUserDefaults.standardUserDefaults()
         let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
