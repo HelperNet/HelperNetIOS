@@ -13,7 +13,6 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     
     let locationManager = CLLocationManager()
     let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
-    var numberHelpers = 0
     
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func buttonCall(sender: AnyObject) {
@@ -21,18 +20,14 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         imageView.image = UIImage(named: "emergency")
     }
     
-    func emergencyCall() {
-        // discover peers
-        let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
-        PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+    }
+    
+    func dispatchCall(fullMessage: String) {
+        NSLog("Pushing full message -- "+fullMessage)
         
-        numberHelpers = 0
-        
-        appDelegate?.messagedLoc = true
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
+        // push to p2p
+        PPKController.pushNewP2PDiscoveryInfo(fullMessage.dataUsingEncoding(NSUTF8StringEncoding))
         
         // dispatch emergency call when allowed in settings
         let settings = NSUserDefaults.standardUserDefaults()
@@ -44,6 +39,14 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         }
         
         appDelegate?.messagedLoc = false
+    }
+    
+    func emergencyCall() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        } else {
+            dispatchCall(getNotificationMessage())
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -77,12 +80,15 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !appDelegate!.messagedLoc  {
             appDelegate?.messagedLoc = true
+            
             let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
             let lat = "\(locValue.latitude)"
             let lng = "\(locValue.longitude)"
-            let myDiscoveryInfo = ("LO:" + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
-            PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
-            NSLog("LO: " + lat + "," + lng)
+            let locationMessage = ("LO:" + lat + "," + lng)
+            NSLog("Build Message -- LO: " + lat + "," + lng)
+            
+            dispatchCall(getNotificationMessage()+"|"+locationMessage)
+            
             if CLLocationManager.locationServicesEnabled() {
                 locationManager.stopUpdatingLocation()
             }
@@ -94,43 +100,17 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func requestNotification(info: NSString!) {
-        // dispatch on DiscoveryInfo
-        if info.hasPrefix("OT") {
-            numberHelpers += 1
-            //******************** HIER EVENT TRIGGERN ********/
-        }
-    }
 
-    
-    func p2pPeerDiscovered(peer: PPKPeer!) {
-        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
-        NSLog("%@ is here with discovery info: %@", peer.peerID, discoveryInfoString!)
-        
-        self.requestNotification(discoveryInfoString)
-    }
-    
-    func p2pPeerLost(peer: PPKPeer!) {
-        NSLog("%@ is no longer here", peer.peerID)
-    }
-    
-    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
-        //        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
-        let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
-        NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
-        
-        self.requestNotification(discoveryInfo)
-    }
-    
     func getNotificationMessage() -> String {
         let defaults = NSUserDefaults.standardUserDefaults()
         let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
-        return message
+        
+        let notificationMessage = "NOT:"+message
+        NSLog("Build Message -- "+notificationMessage)
+        
+        return notificationMessage
     }
+    
 
     @IBAction func emergencyButtonTouched(sender: AnyObject) {
         imageView.image = UIImage(named: "emergency_pressed")

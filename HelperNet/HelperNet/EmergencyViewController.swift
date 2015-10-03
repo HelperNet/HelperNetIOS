@@ -32,6 +32,7 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
     func requestNotification(info: NSString!) {
         if info.hasPrefix("OT") {
             helperNumber += 1
+            helperNumberLabel.text = String(helperNumber)
         }
     }
     
@@ -54,9 +55,5 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
     @IBAction func abortButtonReleased(sender: AnyObject) {
         imageView.image = UIImage(named:"abort")
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        print("prepareForSegue");
-//    }
 }
 
