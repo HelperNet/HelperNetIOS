@@ -17,7 +17,7 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         PPKController.addObserver(self)
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     
