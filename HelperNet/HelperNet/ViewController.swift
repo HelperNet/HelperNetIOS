@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, PPKControllerDelegate {
 
     @IBAction func buttonCall(sender: AnyObject) {
-        let myDiscoveryInfo = "EC: Epileptic Shock!".dataUsingEncoding(NSUTF8StringEncoding)
+        let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
         
         // dispatch emergency call when allowed in settings
@@ -22,8 +22,6 @@ class ViewController: UIViewController, PPKControllerDelegate {
             let url: NSURL = NSURL(string: phoneUrlString)!
             UIApplication.sharedApplication().openURL(url)
         }
-    
-        NSLog("Discovery Info changed")
     }
 
     override func viewDidLoad() {
@@ -49,6 +47,12 @@ class ViewController: UIViewController, PPKControllerDelegate {
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
+    }
+    
+    func getNotificationMessage() -> String {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
+        return message
     }
 
 }

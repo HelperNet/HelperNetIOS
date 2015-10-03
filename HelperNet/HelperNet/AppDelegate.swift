@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
 
     var window: UIWindow?
     var locationManager: CLLocationManager?
+    var helperNumber = 0
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,14 +29,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         if ( application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background )
         {
-            print("Ah, push it push it good; Ah, push it push it real good")
+            let onTheWay = "OT".dataUsingEncoding(NSUTF8StringEncoding)
+            PPKController.pushNewP2PDiscoveryInfo(onTheWay)
+            NSLog("User wants to help")
         }
     }
     
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
     {
-        print("Emergency. Alarm, Alarm!")
+        let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
+        PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+        
+        // dispatch emergency call when allowed in settings
+        let settings = NSUserDefaults.standardUserDefaults()
+        if settings.boolForKey("callEmergencyOn") {
+            let phoneNumber = settings.objectForKey("phoneNumber") as? String ?? "+491736353009"
+            let phoneUrlString = "tel://\(phoneNumber)"
+            let url: NSURL = NSURL(string: phoneUrlString)!
+            UIApplication.sharedApplication().openURL(url)
+        }
         return true
         
     }
@@ -75,7 +88,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     }
     
     func requestNotification(info: NSString!) {
-        if !(info.hasPrefix("OK")) {
+        if info.hasPrefix("OK") || info.hasPrefix("OT") {
+            // "OT" covered in ViewController, "OK" remains silent
+        }
+        else {
+            helperNumber = 0
             let localNotification = UILocalNotification()
             localNotification.alertAction = "Emergency"
             localNotification.alertBody = self.getNotificationMessage()
@@ -87,7 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
         NSLog("%@: %@", peer.peerID, discoveryInfoString!)
         
-
         self.requestNotification(discoveryInfoString)
     }
     
@@ -98,7 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
-        
 
         self.requestNotification(discoveryInfo)
     }

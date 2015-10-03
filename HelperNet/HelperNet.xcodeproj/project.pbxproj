@@ -24,6 +24,7 @@
 		FA67398F1BBF43FE009E82C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */; };
 		FA6918231BBF4E0D00A3B07B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6918221BBF4E0D00A3B07B /* libicucore.tbd */; };
 		FACC43C51BBF9A4C0088115C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC43C41BBF9A4C0088115C /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		FACC43CA1BBFE4650088115C /* EmergencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC43C91BBFE4650088115C /* EmergencyViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		FA6739901BBF43FE009E82C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6918221BBF4E0D00A3B07B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		FACC43C41BBF9A4C0088115C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FACC43C91BBFE4650088115C /* EmergencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				FA67398D1BBF43FE009E82C1 /* LaunchScreen.storyboard */,
 				FA6739901BBF43FE009E82C1 /* Info.plist */,
 				FACC43C41BBF9A4C0088115C /* TableViewController.swift */,
+				FACC43C91BBFE4650088115C /* EmergencyViewController.swift */,
 			);
 			path = HelperNet;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				FA6739871BBF43FE009E82C1 /* ViewController.swift in Sources */,
 				FACC43C51BBF9A4C0088115C /* TableViewController.swift in Sources */,
+				FACC43CA1BBFE4650088115C /* EmergencyViewController.swift in Sources */,
 				FA6739851BBF43FE009E82C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
