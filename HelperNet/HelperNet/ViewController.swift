@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController, PPKControllerDelegate {
-
+class ViewController: UIViewController, PPKControllerDelegate, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+    let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func buttonCall(sender: AnyObject) {
         emergencyCall()
@@ -25,6 +29,12 @@ class ViewController: UIViewController, PPKControllerDelegate {
         // discover peers
         let myDiscoveryInfo = getNotificationMessage().dataUsingEncoding(NSUTF8StringEncoding)
         PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        
+        appDelegate?.messagedLoc = false
         
         // dispatch emergency call when allowed in settings
         let settings = NSUserDefaults.standardUserDefaults()
@@ -44,12 +54,40 @@ class ViewController: UIViewController, PPKControllerDelegate {
         super.viewDidLoad()
         PPKController.addObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "triggerMySegue:", name: "segueListener", object: nil)
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        }
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func triggerMySegue(notification: NSNotification) {
-        
         performSegueWithIdentifier("SegueToEmergency", sender: self)
         emergencyCall()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !appDelegate!.messagedLoc  {
+            appDelegate?.messagedLoc = true
+            let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
+            let lat = "\(locValue.latitude)"
+            let lng = "\(locValue.longitude)"
+            let myDiscoveryInfo = ("LO:" + lat + "," + lng).dataUsingEncoding(NSUTF8StringEncoding)
+            PPKController.pushNewP2PDiscoveryInfo(myDiscoveryInfo)
+            NSLog("LO: " + lat + "," + lng)
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.stopUpdatingLocation()
+            }
+        }
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
