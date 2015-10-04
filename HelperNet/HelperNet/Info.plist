@@ -38,9 +38,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your description here</string>
+	<string>Please Let HelperNet use your location in emergency cases.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your description here</string>
+	<string>Please Let HelperNet use your location in emergency cases.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
