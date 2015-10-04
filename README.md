@@ -1,7 +1,9 @@
 # HelperNet 
-*developed by nerdishByNature at hackzurich*
+**Helping people helping each other**
 
-Using scanning for nearby people we produced an app that is capable of creating a real-time infrastructure to help people in emergency situations. Or rather help people helping each other in these situations. The infrastructure itself based on the p2pkit by Uepaa-AG enables small-scale communication networks to exchange data quickly. 
+*developed by team #nerdishByNature at hackzurich*
+
+Using scanning for nearby people we produced an app that is capable of creating a real-time infrastructure to help people in emergency situations. The infrastructure itself based on the p2pkit by Uepaa-AG enables small-scale communication networks to exchange data quickly. 
 
 This first aid solution does not need registration, a server backend or other more complex infrastructure elements which makes it more flexible and even capable of helping out in emergency situations where you don't have a well established Network service such as on the countryside or crowded places.
 
@@ -14,5 +16,5 @@ The main screen of the application allows to call broadcasts, view the latest em
 
 The settings pane allows to enable calling a given emergency number on top of broadcasting the emergency message to nearby people. You should also define your personal emergency message that will be displayed in the receiver's notification alert. People with chronic diseases may refer to those and their emergency/standard medication so that the potential rescuers are better prepared.
 
-![alt text](http://s16.postimg.org/uj88xcab9/settings.png "Settings that individualize your broadcast and enable automatically calling an emergency number")
+![alt text](http://s17.postimg.org/e4ovykw9r/settings.png "Settings that individualize your broadcast and enable automatically calling an emergency number")
 ![alt text](http://s12.postimg.org/be1l40fn1/emergencybutton.png "To access the emergency function quickly and in any situation just pull down the notification menu and broadcast an emergency call")
