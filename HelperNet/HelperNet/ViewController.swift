@@ -27,6 +27,11 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
     }
     
     @IBAction func mapButton(sender: AnyObject) {
+        NSLog("User wants to help")
+        
+        let onTheWay = "OT".dataUsingEncoding(NSUTF8StringEncoding)
+        PPKController.pushNewP2PDiscoveryInfo(onTheWay)
+        
         UIApplication
             .sharedApplication()
             .openURL(NSURL(string: ("http://maps.apple.com/?daddr=" + (appDelegate?.coordinates)!))!)
