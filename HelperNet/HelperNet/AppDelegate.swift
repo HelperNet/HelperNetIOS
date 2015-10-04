@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
             locationManager.desiredAccuracy = 0
         }
 
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+
         NSLog("App started")
         NSLog(PPKController.myPeerID())
         return true
