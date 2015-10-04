@@ -44,13 +44,23 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
     }
     
     func p2pPeerDiscovered(peer: PPKPeer!) {
-        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
-        self.requestNotification(discoveryInfoString)
+        NSLog("peer discovered -- emergency view")
+        if let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding) {
+            self.requestNotification(discoveryInfoString)
+        }
     }
     
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
-        let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
-        self.requestNotification(discoveryInfo)
+        NSLog("peer updated -- emergency view")
+        if let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding) {
+            self.requestNotification(discoveryInfo)
+        }
+    }
+    
+    func p2pPeerLost(peer: PPKPeer!) {
+        if peer != nil {
+            NSLog("%@ is no longer here", peer.peerID)
+        }
     }
     
     @IBAction func abortButtonPressed(sender: AnyObject) {

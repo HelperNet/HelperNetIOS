@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         NSLog("App started")
+        NSLog(PPKController.myPeerID())
         return true
     }
     
@@ -153,21 +154,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
     }
     
     func p2pPeerDiscovered(peer: PPKPeer!) {
-        let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding)
-        NSLog("%@: %@", peer.peerID, discoveryInfoString!)
+        if let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding:NSUTF8StringEncoding) {
+            NSLog("%@: %@", peer.peerID, discoveryInfoString)
         
-        self.requestNotification(discoveryInfoString)
+            self.requestNotification(discoveryInfoString)
+        }
     }
     
     func p2pPeerLost(peer: PPKPeer!) {
-        NSLog("%@ is no longer here", peer.peerID)
+        if peer != nil {
+            NSLog("%@ is no longer here", peer.peerID)
+        }
     }
     
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
-        let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
-        NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo!)
+        if let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding) {
+            NSLog("%@ has updated discovery info: %@", peer.peerID, discoveryInfo)
 
-        self.requestNotification(discoveryInfo)
+            self.requestNotification(discoveryInfo)
+        }
     }
     
     //=== LIFECYCLE METHODS
