@@ -247,19 +247,11 @@
 				TargetAttributes = {
 					C602CC6A1BBF96A900ED664A = {
 						CreatedOnToolsVersion = 7.0.1;
-<<<<<<< HEAD
 						DevelopmentTeam = N5A4RQCQJR;
 					};
 					FA6739801BBF43FE009E82C1 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = N5A4RQCQJR;
-=======
-						DevelopmentTeam = FTD686N32X;
-					};
-					FA6739801BBF43FE009E82C1 = {
-						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = FTD686N32X;
->>>>>>> 85423c616c50d15cbe7dfd5a12f8e81719b2722e
 					};
 				};
 			};
@@ -378,11 +370,7 @@
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = "WR.HelperNet.Emergency-Widget";
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = "immer.HelperNet.Emergency-Widget";
->>>>>>> 85423c616c50d15cbe7dfd5a12f8e81719b2722e
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -397,11 +385,7 @@
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = "WR.HelperNet.Emergency-Widget";
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = "immer.HelperNet.Emergency-Widget";
->>>>>>> 85423c616c50d15cbe7dfd5a12f8e81719b2722e
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -506,11 +490,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = WR.HelperNet;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = immer.HelperNet;
->>>>>>> 85423c616c50d15cbe7dfd5a12f8e81719b2722e
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
@@ -532,11 +512,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = WR.HelperNet;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = immer.HelperNet;
->>>>>>> 85423c616c50d15cbe7dfd5a12f8e81719b2722e
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";

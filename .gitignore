@@ -42,4 +42,6 @@ xcuserdata
 
 Carthage/Build
 
+*.xcodeproj/
+*.xcodeproj
 HelperNet/HelperNet.xcodeproj/project.pbxproj
