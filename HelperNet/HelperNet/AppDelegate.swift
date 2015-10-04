@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PPKControllerDelegate, CL
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         NSLog("App started")
+        NSLog("ID \(PPKController.myPeerID())")
         return true
     }
     

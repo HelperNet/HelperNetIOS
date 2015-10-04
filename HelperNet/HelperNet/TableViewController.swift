@@ -30,17 +30,16 @@ class TableViewController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(telNumber.text! as String, forKey: "phoneNumber")
         defaults.setBool(emergencyCall.on, forKey: "callEmergencyOn")
+        defaults.setObject(telNumber.text! as String, forKey: "phoneNumber")
         defaults.setObject(textMessage.text, forKey: "message")
-        print("Settings will disappear")
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let defaults = NSUserDefaults.standardUserDefaults()
-        telNumber.text = defaults.objectForKey("phoneNumber") as? String ?? ""
         emergencyCall.on = defaults.boolForKey("callEmergencyOn")
+        telNumber.text = defaults.objectForKey("phoneNumber") as? String ?? ""
         textMessage.text = defaults.objectForKey("message") as? String ?? "Default Emergency Message!"
     }
     

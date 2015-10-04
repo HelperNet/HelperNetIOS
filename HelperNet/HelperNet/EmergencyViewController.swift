@@ -34,21 +34,24 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         if info.hasPrefix("OT") {
             helperNumber += 1
             helperNumberLabel.text = String(helperNumber)
-            
-            if (helperNumber == 1) {
-                helperNumberLabelPerson.text = "person has responded"
-            } else {
-                helperNumberLabelPerson.text = "persons have responded"
-            }
+            helperNumberLabelPerson.text = (helperNumber == 1 ? "person has" : "people have") + "responded"
         }
     }
     
     func p2pPeerDiscovered(peer: PPKPeer!) {
+        if peer == nil {
+            NSLog("Peer is nil.")
+        }
+        
         let discoveryInfoString = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         self.requestNotification(discoveryInfoString)
     }
     
     func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
+        if peer == nil {
+            NSLog("Peer is nil.")
+        }
+        
         let discoveryInfo = NSString(data: peer.discoveryInfo, encoding: NSUTF8StringEncoding)
         self.requestNotification(discoveryInfo)
     }

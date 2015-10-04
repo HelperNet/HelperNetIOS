@@ -247,11 +247,11 @@
 				TargetAttributes = {
 					C602CC6A1BBF96A900ED664A = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 7JUN85HZJS;
+						DevelopmentTeam = N5A4RQCQJR;
 					};
 					FA6739801BBF43FE009E82C1 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 7JUN85HZJS;
+						DevelopmentTeam = N5A4RQCQJR;
 					};
 				};
 			};
@@ -370,7 +370,7 @@
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "WR.HelperNet.Emergency-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -385,7 +385,7 @@
 				INFOPLIST_FILE = "Emergency Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "mkw.HelperNet.Emergency-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "WR.HelperNet.Emergency-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -490,7 +490,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = WR.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
@@ -512,7 +512,7 @@
 				INFOPLIST_FILE = HelperNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mkw.HelperNet;
+				PRODUCT_BUNDLE_IDENTIFIER = WR.HelperNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelperNet/HelperNet-Bridging-Header.h";
