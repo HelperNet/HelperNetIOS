@@ -121,7 +121,7 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
 
     func getNotificationMessage() -> String {
         let defaults = NSUserDefaults.standardUserDefaults()
-        let message = defaults.objectForKey("message") as? String ?? "Default Emergency Call!"
+        let message = defaults.objectForKey("message") as? String ?? ""
         
         let notificationMessage = "NO"+message
         NSLog("Build Message -- "+notificationMessage)

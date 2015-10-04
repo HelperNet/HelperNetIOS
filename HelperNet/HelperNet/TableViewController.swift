@@ -40,7 +40,7 @@ class TableViewController: UITableViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         emergencyCall.on = defaults.boolForKey("callEmergencyOn")
         telNumber.text = defaults.objectForKey("phoneNumber") as? String ?? ""
-        textMessage.text = defaults.objectForKey("message") as? String ?? "Default Emergency Message!"
+        textMessage.text = defaults.objectForKey("message") as? String ?? "e.g. present illness and complaints, needed medication, other notes to doctors..."
     }
     
     override func viewDidLoad() {
