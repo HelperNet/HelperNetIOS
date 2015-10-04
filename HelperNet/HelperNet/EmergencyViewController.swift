@@ -34,7 +34,7 @@ class EmergencyViewController: UIViewController, PPKControllerDelegate {
         if info.hasPrefix("OT") {
             helperNumber += 1
             helperNumberLabel.text = String(helperNumber)
-            helperNumberLabelPerson.text = (helperNumber == 1 ? "person has" : "people have") + "responded"
+            helperNumberLabelPerson.text = (helperNumber == 1 ? "person has " : "people have ") + "responded to your call"
         }
     }
 
