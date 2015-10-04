@@ -23,3 +23,5 @@ The settings pane allows to enable calling a given emergency number on top of br
 Repository: https://github.com/nicoring/HelperNetAndroid
 http://postimg.org/image/xvyvzcn1v/
 
+![alt text](http://s7.postimg.org/3wwfdqvrv/home.png "Homw View")
+![alt text](http://s7.postimg.org/40h22imhn/settings.png "Settings View")
