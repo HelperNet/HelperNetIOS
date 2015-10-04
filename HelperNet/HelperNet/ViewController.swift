@@ -177,5 +177,9 @@ class ViewController: UIViewController, PPKControllerDelegate, CLLocationManager
         
         updatePeopleNearby()
     }
+    
+    func didUpdateP2PDiscoveryInfoForPeer(peer: PPKPeer!) {
+        // protocol method
+    }
 }
 
